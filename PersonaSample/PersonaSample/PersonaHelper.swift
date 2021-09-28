@@ -38,15 +38,19 @@ class PersonaHelper {
 
 // MARK: - Persona Methods
 extension PersonaHelper: InquiryDelegate {
-    @objc func startPersonaIdentity(with templateId: String, for environment: String) {
+    @objc func startPersonaIdentity(withTemplateId: String, withPersonId: String, forEnvironment: String) {
         var env: Persona.Environment? = .production
-        if environment != "production" {
+        if forEnvironment != "production" {
             env = .sandbox
         }
         
-        let config = InquiryConfiguration(templateId: templateId,
+        let config = InquiryConfiguration(templateId: withTemplateId,
+                                          referenceId: withPersonId,
                                           environment: env,
                                           theme: theme)
+        
+        // Create the inquiry with the view controller
+        // as the delegate and presenter.
         Inquiry(config: config, delegate: self).start(from: self.parent!)
     }
     
