@@ -17,10 +17,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsO-no-b84">
-                                <rect key="frame" x="67.5" y="423" width="279" height="50"/>
+                                <rect key="frame" x="70" y="423" width="274" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="Czp-7d-Zdc"/>
                                     <constraint firstAttribute="height" constant="50" id="ouM-sy-yTF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -28,13 +27,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="proceedIdentity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Awr-CR-NNy"/>
+                                    <action selector="startPersonaVerification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BsC-7L-G23"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZsO-no-b84" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="A7M-mm-YpL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZsO-no-b84" secondAttribute="trailing" constant="70" id="IG9-uq-KUr"/>
                             <constraint firstItem="ZsO-no-b84" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sc3-gj-YCP"/>
                             <constraint firstItem="ZsO-no-b84" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="th4-Kl-x3M"/>
                         </constraints>

@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  PersonaSample
 //
-//  Created by Rohan on 28/09/21.
+//  Created by Solid on 28/09/21.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func proceedIdentity(_ sender: Any) {
+    @IBAction func startPersonaVerification(_ sender: Any) {
         /* MAKE API CALL TO GET 'template_id' FROM YOUR SERVER */
         callAPIToGetPersonaTempalteID()
     }
@@ -46,7 +46,7 @@ extension ViewController {
          - REPLACE "template_id" with one that you recieve from server
          - REPLACE "environment" with 'sandbox' OR 'production'
         */
-        self.personaHelper?.startPersonaIdentity(with: "template_id", for: "environment")
+        self.personaHelper?.startPersonaIdentity(with: "tmpl_KLDVfZys1czBAKzg2gwVcTys", for: "sandbox")
     }
 
     func callAPIToSubmitIDVerification(inquiryID: String) {

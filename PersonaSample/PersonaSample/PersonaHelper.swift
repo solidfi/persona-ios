@@ -26,20 +26,6 @@ class PersonaHelper {
         theme.selectedCellBackgroundColor = .lightGray //country selection cell
         theme.cameraButtonAlternateBackgroundColor = .lightGray //camera button RETAKE
         theme.cameraButtonBackgroundColor = .blue //camera button LOOKS GOOD
-        
-        /* OTHER THEME PROPERTIES */
-        //theme.accentColor = .brandColor //animation tint color
-        //theme.cameraGuideCornersColor = .white //camera capture area corner color
-        //theme.cancelButtonAlternateBackgroundColor = .red
-        //theme.backgroundColor = .white
-        //theme.bodyTextColor = .black
-        //theme.titleTextColor = .black
-        //theme.closeButtonTintColor = .black
-        //theme.cancelButtonBackgroundColor = .black
-        
-        /* THEME PROPERTIES FOR V2 */
-        //theme.buttonSecondaryBorderColor = .black // for V2
-        //theme.buttonSecondaryTextColor = .primaryColor // for V2
     }
     
     private func showErrorMessage(forError error: Error) {
@@ -61,9 +47,6 @@ extension PersonaHelper: InquiryDelegate {
         let config = InquiryConfiguration(templateId: templateId,
                                           environment: env,
                                           theme: theme)
-        
-        // Create the inquiry with the view controller
-        // as the delegate and presenter.
         Inquiry(config: config, delegate: self).start(from: self.parent!)
     }
     
