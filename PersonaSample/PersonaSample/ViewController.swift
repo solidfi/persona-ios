@@ -34,19 +34,19 @@ class ViewController: UIViewController {
     
     @IBAction func startPersonaVerification(_ sender: Any) {
         /* MAKE API CALL TO GET 'template_id' FROM YOUR SERVER */
-        callAPIToGetPersonaTempalteID()
+        callAPIToGetPersonaTemplateID()
     }
 }
 
 // MARK: - API calls
 extension ViewController {
 
-    func callAPIToGetPersonaTempalteID() {
+    func callAPIToGetPersonaTemplateID() {
         /* ON API CALL SUCCESS, MAKE REQUEST TO PERSONA WITH 'template_id' AND 'environment'
          - REPLACE "template_id" with one that you recieve from server
          - REPLACE "environment" with 'sandbox' OR 'production'
         */
-        self.personaHelper?.startPersonaIdentity(with: "tmpl_KLDVfZys1czBAKzg2gwVcTys", for: "sandbox")
+        self.personaHelper?.startPersonaIdentity(with: "template_id", for: "environment")
     }
 
     func callAPIToSubmitIDVerification(inquiryID: String) {
