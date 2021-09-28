@@ -1,0 +1,251 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Persona
+import AVFoundation
+import AVKit
+import Dispatch
+import Foundation
+import Metal
+import MetalKit
+import MetalPerformanceShaders
+import MobileCoreServices
+@_exported import Persona
+import Photos
+import SafariServices
+import Swift
+import UIKit
+import Vision
+import VisionKit
+import os
+public protocol InquiryDelegate : AnyObject {
+  func inquirySuccess(inquiryId: Swift.String, attributes: Persona.Attributes, relationships: Persona.Relationships)
+  func inquiryFailed(inquiryId: Swift.String, attributes: Persona.Attributes, relationships: Persona.Relationships)
+  func inquiryCancelled()
+  func inquiryError(_ error: Swift.Error)
+}
+public struct Attributes {
+  public let birthdate: Foundation.Date?
+  public let name: Persona.Name?
+  public let address: Persona.Address?
+}
+public struct Name {
+  public let first: Swift.String?
+  public let middle: Swift.String?
+  public let last: Swift.String?
+  public init(first: Swift.String? = nil, last: Swift.String? = nil)
+  public init(first: Swift.String? = nil, middle: Swift.String? = nil, last: Swift.String? = nil)
+}
+public protocol Verification {
+  var id: Swift.String { get }
+  var status: Persona.Status { get }
+}
+public struct PhoneNumberVerification : Persona.Verification {
+  public let id: Swift.String
+  public let status: Persona.Status
+}
+public struct GovernmentIdVerification : Persona.Verification {
+  public let id: Swift.String
+  public let status: Persona.Status
+}
+public struct SelfieVerification : Persona.Verification {
+  public let id: Swift.String
+  public let status: Persona.Status
+}
+public struct DocumentVerification : Persona.Verification {
+  public let id: Swift.String
+  public let status: Persona.Status
+}
+public struct DatabaseVerification : Persona.Verification {
+  public let id: Swift.String
+  public let status: Persona.Status
+}
+final public class Inquiry {
+  public static var versionNumber: Swift.String {
+    get
+  }
+  public init(config: Persona.InquiryConfiguration, delegate: Persona.InquiryDelegate)
+  final public func start(from viewController: UIKit.UIViewController)
+  @objc deinit
+}
+public struct Fields {
+  public let name: Persona.Name?
+  public let address: Persona.Address?
+  public let birthdate: Foundation.Date?
+  public let phoneNumber: Swift.String?
+  public let emailAddress: Swift.String?
+  public let additionalFields: [Swift.String : Persona.InquiryField]?
+  public init(name: Persona.Name? = nil, address: Persona.Address? = nil, birthdate: Foundation.Date? = nil, phoneNumber: Swift.String? = nil, emailAddress: Swift.String? = nil, additionalFields: [Swift.String : Persona.InquiryField]? = nil)
+}
+public enum InquiryField {
+  case string(Swift.String)
+  case int(Swift.Int)
+  case bool(Swift.Bool)
+}
+public struct InquiryTheme {
+  public var backgroundColor: UIKit.UIColor
+  public var primaryColor: UIKit.UIColor
+  public var darkPrimaryColor: UIKit.UIColor
+  public var accentColor: UIKit.UIColor
+  public var errorColor: UIKit.UIColor
+  public var errorTextFont: UIKit.UIFont
+  public var overlayBackgroundColor: UIKit.UIColor
+  public var navigationBarTextColor: UIKit.UIColor
+  public var navigationBarTextFont: UIKit.UIFont
+  public var titleTextAlignment: UIKit.NSTextAlignment
+  public var titleTextColor: UIKit.UIColor
+  public var titleTextFont: UIKit.UIFont
+  public var cardTitleTextFont: UIKit.UIFont
+  public var bodyTextAlignment: UIKit.NSTextAlignment
+  public var bodyTextColor: UIKit.UIColor
+  public var bodyTextFont: UIKit.UIFont
+  public var footnoteTextColor: UIKit.UIColor
+  public var footnoteTextFont: UIKit.UIFont
+  public var formLabelTextColor: UIKit.UIColor
+  public var formLabelTextFont: UIKit.UIFont
+  public var textFieldTextColor: UIKit.UIColor
+  public var textFieldBackgroundColor: UIKit.UIColor
+  public var textFieldBorderColor: UIKit.UIColor
+  public var textFieldCornerRadius: CoreGraphics.CGFloat
+  public var textFieldFont: UIKit.UIFont
+  public var textFieldPlaceholderFont: UIKit.UIFont
+  public var pickerTextColor: UIKit.UIColor
+  public var pickerTextFont: UIKit.UIFont
+  public var buttonBackgroundColor: UIKit.UIColor
+  public var buttonDisabledBackgroundColor: UIKit.UIColor
+  public var buttonTouchedBackgroundColor: UIKit.UIColor
+  public var buttonTextColor: UIKit.UIColor
+  public var buttonDisabledTextColor: UIKit.UIColor
+  public var buttonTextAlignment: UIKit.NSTextAlignment
+  public var buttonImageTintColor: UIKit.UIColor
+  public var buttonImageHidden: Swift.Bool
+  public var buttonCornerRadius: CoreGraphics.CGFloat
+  public var buttonFont: UIKit.UIFont
+  public var buttonShadowColor: UIKit.UIColor
+  public var buttonShadowRadius: CoreGraphics.CGFloat
+  public var buttonShadowOffset: CoreGraphics.CGSize
+  public var checkboxBackgroundColor: UIKit.UIColor
+  public var checkboxForegroundColor: UIKit.UIColor
+  public var selectedCellBackgroundColor: UIKit.UIColor
+  public var closeButtonTintColor: UIKit.UIColor
+  public var cancelButtonBackgroundColor: UIKit.UIColor
+  public var cancelButtonTextColor: UIKit.UIColor
+  public var cancelButtonAlternateBackgroundColor: UIKit.UIColor
+  public var cancelButtonAlternateTextColor: UIKit.UIColor
+  public var cancelButtonShadowColor: UIKit.UIColor
+  public var cancelButtonShadowRadius: CoreGraphics.CGFloat
+  public var cancelButtonShadowOffset: CoreGraphics.CGSize
+  public var processingLabelsTextAlignment: UIKit.NSTextAlignment
+  public var selfieAnimation: Persona.InquiryTheme.AnimationAsset?
+  public var loadingAnimation: Persona.InquiryTheme.AnimationAsset?
+  public var processingAnimation: Persona.InquiryTheme.AnimationAsset?
+  public var successAsset: Persona.ThemeAsset?
+  public var failedAsset: Persona.ThemeAsset?
+  public var verificationFailedAsset: Persona.ThemeAsset?
+  public var separatorColor: UIKit.UIColor
+  public var showGovernmentIdIcons: Swift.Bool
+  public var cameraInstructionsTextColor: UIKit.UIColor
+  public var cameraInstructionsTextFont: UIKit.UIFont
+  public var cameraInstructionTextAlignment: UIKit.NSTextAlignment
+  public var cameraButtonBackgroundColor: UIKit.UIColor
+  public var cameraButtonTextColor: UIKit.UIColor
+  public var cameraButtonAlternateBackgroundColor: UIKit.UIColor
+  public var cameraButtonAlternateTextColor: UIKit.UIColor
+  public var cameraHintTextColor: UIKit.UIColor
+  public var cameraHintTextFont: UIKit.UIFont
+  public var cameraGuideHintTextColor: UIKit.UIColor
+  public var cameraGuideCornersColor: UIKit.UIColor
+  public var cameraGuideHintTextFont: UIKit.UIFont
+  public init()
+}
+public protocol ThemeAsset {
+  var type: Persona.InquiryTheme.AssetType { get }
+  var size: CoreGraphics.CGSize { get }
+}
+extension InquiryTheme {
+  public enum AssetType {
+    case animation
+    case svgImage
+    case image
+    public static func == (a: Persona.InquiryTheme.AssetType, b: Persona.InquiryTheme.AssetType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct AnimationAsset : Persona.ThemeAsset {
+    public let path: Swift.String?
+    public let size: CoreGraphics.CGSize
+    public let type: Persona.InquiryTheme.AssetType
+    public init(path: Swift.String?, size: CoreGraphics.CGSize)
+  }
+  public struct SVGAsset : Persona.ThemeAsset {
+    public let path: Swift.String?
+    public let size: CoreGraphics.CGSize
+    public let type: Persona.InquiryTheme.AssetType
+    public init(path: Swift.String?, size: CoreGraphics.CGSize)
+  }
+  public struct ImageAsset : Persona.ThemeAsset {
+    public let name: Swift.String?
+    public let size: CoreGraphics.CGSize
+    public let type: Persona.InquiryTheme.AssetType
+    public init(name: Swift.String?, bundle: Foundation.Bundle = Bundle.main, size: CoreGraphics.CGSize? = nil)
+    public init(image: UIKit.UIImage?, size: CoreGraphics.CGSize? = nil)
+  }
+}
+public enum Status {
+  case passed
+  case requiresRetry
+  case failed
+  public static func == (a: Persona.Status, b: Persona.Status) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension UIImageView {
+  @objc override dynamic open func awakeFromNib()
+}
+public struct Relationships {
+  public let verifications: [Persona.Verification]
+}
+public enum Environment : Swift.String {
+  case production
+  case sandbox
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Address {
+  public let street1: Swift.String?
+  public let street2: Swift.String?
+  public let city: Swift.String?
+  public let subdivision: Swift.String?
+  public let subdivisionAbbr: Swift.String?
+  public let postalCode: Swift.String?
+  public let countryCode: Swift.String?
+  public init(street1: Swift.String? = nil, street2: Swift.String? = nil, city: Swift.String? = nil, subdivision: Swift.String? = nil, subdivisionAbbr: Swift.String? = nil, postalCode: Swift.String? = nil, countryCode: Swift.String? = nil)
+}
+public struct InquiryConfiguration {
+  public init(templateId: Swift.String, environment: Persona.Environment? = .production, note: Swift.String? = nil, fields: Persona.Fields? = nil, theme: Persona.InquiryTheme? = nil)
+  public init(templateId: Swift.String, referenceId: Swift.String, environment: Persona.Environment? = .production, note: Swift.String? = nil, fields: Persona.Fields? = nil, theme: Persona.InquiryTheme? = nil)
+  public init(templateId: Swift.String, accountId: Swift.String, environment: Persona.Environment? = .production, note: Swift.String? = nil, fields: Persona.Fields? = nil, theme: Persona.InquiryTheme? = nil)
+  public init(inquiryId: Swift.String, accessToken: Swift.String? = nil, theme: Persona.InquiryTheme? = nil)
+}
+public enum InquiryConfigurationError : Swift.Error {
+  case invalidTemplateId(Swift.String)
+  case prefixSDKVersionMismatch(Swift.String)
+}
+extension InquiryConfigurationError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension Persona.InquiryTheme.AssetType : Swift.Equatable {}
+extension Persona.InquiryTheme.AssetType : Swift.Hashable {}
+extension Persona.Status : Swift.Equatable {}
+extension Persona.Status : Swift.Hashable {}
+extension Persona.Environment : Swift.Equatable {}
+extension Persona.Environment : Swift.Hashable {}
+extension Persona.Environment : Swift.RawRepresentable {}

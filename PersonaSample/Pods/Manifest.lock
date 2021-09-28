@@ -1,0 +1,16 @@
+PODS:
+  - PersonaInquirySDK (1.1.18)
+
+DEPENDENCIES:
+  - PersonaInquirySDK (~> 1.1.18)
+
+SPEC REPOS:
+  trunk:
+    - PersonaInquirySDK
+
+SPEC CHECKSUMS:
+  PersonaInquirySDK: d7be5e1ab62e15e5dae2fe715a43765d22e2661c
+
+PODFILE CHECKSUM: 420a9726271d6b3bbf86eb4e469f3b6011e171e8
+
+COCOAPODS: 1.10.1
