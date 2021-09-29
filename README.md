@@ -3,12 +3,10 @@ Persona Sample for iOS
 
 Overview :
 - Persona provides a powerful, secure platform to help organizations collect, verify, store, and analyze the identity of any individual.
-- Solid uses Persona to process KYC
 
 Requirements :
 - iOS 13 and above
 - Xcode 12 and above
-- Persona pod version 1.1.18 and above
 
 Locate your Template ID (other than from API):
 - Sign up for a free Persona account which comes with Sandbox access
