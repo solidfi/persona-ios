@@ -11,7 +11,7 @@ import Persona
 
 class PersonaHelper {
     var parent: UIViewController?
-    var onSuccess: ((String) -> Void)?
+    var onSuccess: ((String,Attributes,Relationships) -> Void)?
     var theme = InquiryTheme()
 
     convenience init(_ parent: UIViewController) {
@@ -59,7 +59,8 @@ extension PersonaHelper: InquiryDelegate {
         debugPrint("identity success. inquiryId : \(inquiryId)")
         debugPrint("InquiryId : \(inquiryId)")
         debugPrint("Attributes : \(attributes)")
-        self.onSuccess!(inquiryId)
+        debugPrint("Relationships : \(relationships)")
+        self.onSuccess!(inquiryId, attributes, relationships)
     }
     
     func inquiryCancelled() {

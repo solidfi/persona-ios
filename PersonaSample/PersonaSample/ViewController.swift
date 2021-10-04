@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Persona
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -33,6 +34,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         txtPersonID.delegate = self
         txtTempalteID.delegate = self
         
+        lblLogs.isHidden = true
+        
         setPicker()
         
         /* SET UP PERSONA HELPER*/
@@ -44,10 +47,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         personaHelper = PersonaHelper(self)
         
         /* HANDLE PERSONA IDENTIFICATION SUCCESS */
-        personaHelper?.onSuccess = { (inquiryID: String) -> Void in
-            debugPrint("identity success... inquiryID is : \(inquiryID)")
+        personaHelper?.onSuccess = { (inquiryID: String, attributes: Attributes, relationships: Relationships) -> Void in
             
-            self.lblLogs.text = "Logs:\nIdentity success...\nInquiryID: \(inquiryID)"
+            self.lblLogs.isHidden = false
+            self.lblLogs.text = "Identity success.....\nInquiryID: \(inquiryID) \n\n Attributes: \(attributes)\n\nRelationships: \(relationships)"
             
             /* MAKE API CALL TO SUBMIT 'inquiry_id' TO YOUR SERVER
              - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#937e0241-2229-4aad-96e7-10abbd235933
