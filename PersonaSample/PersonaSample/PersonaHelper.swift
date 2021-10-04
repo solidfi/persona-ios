@@ -57,6 +57,8 @@ extension PersonaHelper: InquiryDelegate {
     func inquirySuccess(inquiryId: String, attributes: Attributes, relationships: Relationships) {
         // ✅ Inquiry succeeded
         debugPrint("identity success. inquiryId : \(inquiryId)")
+        debugPrint("InquiryId : \(inquiryId)")
+        debugPrint("Attributes : \(attributes)")
         self.onSuccess!(inquiryId)
     }
     
