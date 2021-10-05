@@ -6,6 +6,7 @@
 - [Tooling](#tooling)
 - [API Reference](#api-reference)
 - [Dependencies](#dependencies)
+- [Configure Persona Sample](#configure-persona-sample)
 - [Getting started](#getting-started)
 - [Install and run CocoaPods](#install-and-run-cocoapods)
 - [Open workspace and run in Simulator](#open-workspace-and-run-in-simulator)
