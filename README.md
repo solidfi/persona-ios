@@ -1,7 +1,6 @@
 # persona-ios
 
 ## Table of contents
-
 - [Overview](#overview)
 - [Version](#version)
 - [Tooling](#tooling)
@@ -11,12 +10,14 @@
 - [Install and run CocoaPods](#install-and-run-cocoapods)
 - [Open workspace and run in Simulator](#open-workspace-and-run-in-simulator)
 
-## Overview
 
+## Overview
 Persona provides a powerful, secure platform to help organizations collect, verify, store, and analyze the identity of any individual.
+
 
 ## Version
 iOS SDK v1.1.18
+
 
 ## Tooling
 - iOS 13.0 +
@@ -24,13 +25,29 @@ iOS SDK v1.1.18
 - Swift 5.0 +
 - CocoaPods
 
+
 ## API Reference
 - Persona Integration : https://docs.withpersona.com/docs/ios-inquiry-sdk-integration-guide
 - Solid API Integration : https://documenter.getpostman.com/view/13543869/TWDfEDwX#ce8c0e57-0dcf-45ea-87d8-6f03a302e027
 
-
 ## Dependencies
 - PersonaInquirySDK
+
+
+## Configure Persona Sample
+
+### Clone respository
+git clone git@github.com:solidfi/persona-ios.git
+OR
+git clone https://github.com/solidfi/persona-ios.git
+
+### Install CocoaPods
+Installing CocoaPods at https://cocoapods.org/
+In the `PersonaSample/` directory run `pod install`
+
+### Open workspace and run in Simulator
+1. Launch `Xcode` and open the workspace `PersonaSample/PersonaSample.xcworkspace`
+1. Run in Simulator
 
 
 ## Getting started
@@ -58,16 +75,4 @@ inquiryFailed — the inquiry failed
 inquiryCancelled — the inquiry was cancelled by the user
 inquiryError — the inquiry errored
 
-
-
-## Install and run CocoaPods
-
-Installing CocoaPods at https://cocoapods.org/
-
-In the `PersonaSample/` directory run `pod install`
-
-## Open workspace and run in Simulator
-
-1. Launch `Xcode` and open the workspace `PersonaSample/PersonaSample.xcworkspace`
-1. Run in Simulator
 
