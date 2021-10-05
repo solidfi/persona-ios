@@ -10,18 +10,21 @@ Requirements :
 
 Configure Persona Sample :
 - Clone respository
+```groovy
 git clone git@github.com:solidfi/persona-ios.git
 OR
 git clone https://github.com/solidfi/persona-ios.git
-
+```
 - Install CocoaPods
+```groovy
 1. Install CocoaPods at https://cocoapods.org/
 2. In the `PersonaSample/` directory run `pod install`
-
+```
 - Open workspace and run in Simulator
+```groovy
 1. Launch `Xcode` and open the workspace `PersonaSample/PersonaSample.xcworkspace`
 2. Run in Simulator
- 
+```
 Locate your Template ID (other than from API):
 - Sign up for a free Persona account which comes with Sandbox access
 - Login to the Persona Dashboard and go to the Development section.
