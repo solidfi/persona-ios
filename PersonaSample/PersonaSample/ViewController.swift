@@ -6,24 +6,23 @@
 //
 
 import UIKit
-import Persona
+import WebKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var lblPersonIDTitle: UILabel!
     @IBOutlet weak var txtPersonID: UITextField!
-    
-    @IBOutlet weak var lblTempalteIDTitle: UILabel!
-    @IBOutlet weak var txtTempalteID: UITextField!
-    
+        
     @IBOutlet weak var lblEnviormentTitle: UILabel!
     @IBOutlet weak var txtEnvironment: UITextField!
     
     @IBOutlet weak var lblLogs: UILabel!
 
-    var personaHelper: PersonaHelper?
     let pickerView = UIPickerView()
     var strSelectedEnvironment: String? = ""
+    
+    var personaWebView: WKWebView!
+    let personaCallback = "https://personacallback"
     
     public let environmnts: [String] = ["SANDBOX", "PRODUCTION"]
 
@@ -32,46 +31,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         txtPersonID.delegate = self
-        txtTempalteID.delegate = self
         
         lblLogs.isHidden = true
         
         setPicker()
-        
-        /* SET UP PERSONA HELPER*/
-        setupPersona()
-    }
-
-    func setupPersona() {
-        /* INITIALSE PERSONA HELPER */
-        personaHelper = PersonaHelper(self)
-        
-        /* HANDLE PERSONA IDENTIFICATION SUCCESS */
-        personaHelper?.onSuccess = { (inquiryID: String, attributes: Attributes, relationships: Relationships) -> Void in
-            
-            self.lblLogs.isHidden = false
-            self.lblLogs.text = "Identity success.....\nInquiryID: \(inquiryID) \n\n Attributes: \(attributes)\n\nRelationships: \(relationships)"
-            
-            /* MAKE API CALL TO SUBMIT 'inquiry_id' TO YOUR SERVER
-             - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#937e0241-2229-4aad-96e7-10abbd235933
-             */
-            self.callAPIToSubmitIDVerification(inquiryID: inquiryID)
-        }
     }
     
     @IBAction func startPersonaVerification(_ sender: Any) {
-        /* - Enter "template_id" with one that you recieve from server
+        /*
         - Enter "person_id" with one that you recieve from server
         - Select 'sandbox' OR 'production'
         */
         
         if let strPersonID = txtPersonID.text?.trimmingCharacters(in: CharacterSet.whitespaces), !strPersonID.isEmpty,
-           let strTemplateID = txtTempalteID.text?.trimmingCharacters(in: CharacterSet.whitespaces), !strTemplateID.isEmpty,
-           let strEnvironment = txtEnvironment.text, !strTemplateID.isEmpty {
-            /* MAKE API CALL TO GET 'template_id' FROM YOUR SERVER
+           let strEnvironment = txtEnvironment.text, !strEnvironment.isEmpty {
+            /* MAKE API CALL TO GET hostedURL FROM YOUR SERVER
              - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#b53a7e6a-a1b0-4510-89e5-c69704d3a7f9
              */
-            callAPIToGetPersonaTemplateID(strPersonID: strPersonID, strTemplateID: strTemplateID, strEnvironment: strEnvironment)
+            callAPIToGetHostedURL(strPersonID: strPersonID, strEnvironment: strEnvironment)
         } else {
             let alert = UIAlertController(title: "Enter valid data", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -80,8 +57,72 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true;
+        textField.resignFirstResponder()
+        return true;
+    }
+}
+
+// MARK: - Webview methods
+extension ViewController {
+    func loadWebview(forHostedUrl: String) {
+        // Create the web view and show it
+        let config = WKWebViewConfiguration()
+        config.allowsInlineMediaPlayback = true
+
+        if personaWebView == nil {
+            personaWebView = WKWebView(frame: .zero, configuration: config)
+            personaWebView.navigationDelegate = self
+            personaWebView.allowsBackForwardNavigationGestures = false
+            personaWebView.scrollView.bounces = false
+            personaWebView.translatesAutoresizingMaskIntoConstraints = false
+            personaWebView.backgroundColor = .white
+            view.addSubview(personaWebView)
+            
+            NSLayoutConstraint.activate([
+                personaWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                personaWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                personaWebView.topAnchor.constraint(equalTo: view.topAnchor),
+                personaWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+        }
+
+        let redirectURI = "&redirect-uri=\(personaCallback)"
+        let strUrl  = forHostedUrl + redirectURI
+        let hostedURL = URL(string: strUrl)
+        let request = URLRequest(url: hostedURL!)
+        personaWebView.load(request)
+   }
+}
+
+extension ViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        debugPrint("hellosign webview error : \(error)")
+    }
+    
+    /// Handle navigation actions from the web view.
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        // Check if we are being redirected to our `redirectUri`. This happens once verification is completed.
+        guard let redirectUri = navigationAction.request.url?.absoluteString, redirectUri.starts(with: personaCallback) else {
+            // We're not being redirected, so load the URL.
+            decisionHandler(.allow)
+            return
+        }
+
+        // At this point we're done, so we don't need to load the URL.
+        // verification is success..
+        decisionHandler(.cancel)
+        
+        self.lblLogs.isHidden = false
+        self.lblLogs.text = "Identity success....."
+
+        //self.lblLogs.text = "Identity success.....\nInquiryID: \("inquiryID") \n\n Attributes: \(attributes)\n\nRelationships: \(relationships)"
+        
+        /* ON API CALL SUCCESS, MAKE API CALL TO SUBMIT KYC'
+         - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
+         */
+        self.callAPIToSubmitKYC()
     }
 }
 
@@ -133,18 +174,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 // MARK: - API calls
 extension ViewController {
-
-    func callAPIToGetPersonaTemplateID(strPersonID: String, strTemplateID: String, strEnvironment: String) {
-        /* ON API CALL SUCCESS, MAKE REQUEST TO CREATE PERSONA INQUIRY WITH person_id, template_id AND environment
-        */
-        self.personaHelper?.startPersonaIdentity(withTemplateId: strTemplateID, withPersonId: strPersonID, forEnvironment: strEnvironment)
-    }
-
-    func callAPIToSubmitIDVerification(inquiryID: String) {
-        /* ON API CALL SUCCESS, MAKE API CALL TO SUBMIT KYC'
-         - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
-         */
-        self.callAPIToSubmitKYC()
+    func callAPIToGetHostedURL(strPersonID: String, strEnvironment: String) {
+        //ON SUCCESS..HOSTED URL WILL BE RECIVED..
+        //PASS RECEIVED HOSTED URL TO LOAD WEBVIEW...
+        self.loadWebview(forHostedUrl: "")
     }
 
     func callAPIToSubmitKYC() {

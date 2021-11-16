@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		18AC3F48270309BD003FFA52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AC3F46270309BD003FFA52 /* Main.storyboard */; };
 		18AC3F4A270309BE003FFA52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18AC3F49270309BE003FFA52 /* Assets.xcassets */; };
 		18AC3F4D270309BE003FFA52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18AC3F4B270309BE003FFA52 /* LaunchScreen.storyboard */; };
-		18AC3F5527030A5B003FFA52 /* PersonaHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AC3F5427030A5B003FFA52 /* PersonaHelper.swift */; };
 		9D030D637A7E5AB9B4F31ADD /* Pods_PersonaSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1599347F98427336120A1907 /* Pods_PersonaSample.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,6 @@
 		18AC3F49270309BE003FFA52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18AC3F4C270309BE003FFA52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18AC3F4E270309BE003FFA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18AC3F5427030A5B003FFA52 /* PersonaHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaHelper.swift; sourceTree = "<group>"; };
 		3345D3EEF657FB6EAEA51FDE /* Pods-PersonaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonaSample.debug.xcconfig"; path = "Target Support Files/Pods-PersonaSample/Pods-PersonaSample.debug.xcconfig"; sourceTree = "<group>"; };
 		8BE28865E5A504254C80B067 /* Pods-PersonaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonaSample.release.xcconfig"; path = "Target Support Files/Pods-PersonaSample/Pods-PersonaSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +63,6 @@
 			children = (
 				18AC3F40270309BD003FFA52 /* AppDelegate.swift */,
 				18AC3F44270309BD003FFA52 /* ViewController.swift */,
-				18AC3F5427030A5B003FFA52 /* PersonaHelper.swift */,
 				18AC3F46270309BD003FFA52 /* Main.storyboard */,
 				18AC3F4B270309BE003FFA52 /* LaunchScreen.storyboard */,
 				18AC3F4E270309BE003FFA52 /* Info.plist */,
@@ -102,7 +99,6 @@
 				18AC3F39270309BD003FFA52 /* Sources */,
 				18AC3F3A270309BD003FFA52 /* Frameworks */,
 				18AC3F3B270309BD003FFA52 /* Resources */,
-				CE1D173302807A1787FAFFEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,23 +177,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CE1D173302807A1787FAFFEE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PersonaSample/Pods-PersonaSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PersonaSample/Pods-PersonaSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PersonaSample/Pods-PersonaSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -207,7 +186,6 @@
 			files = (
 				18AC3F45270309BD003FFA52 /* ViewController.swift in Sources */,
 				18AC3F41270309BD003FFA52 /* AppDelegate.swift in Sources */,
-				18AC3F5527030A5B003FFA52 /* PersonaHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

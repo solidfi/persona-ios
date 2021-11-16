@@ -6,93 +6,38 @@
 	objectVersion = 50;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		F64506DE722836AE15E4CF7F2FAAD31C /* PersonaInquirySDK */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = FF61A56058930BB7B4AACE673F8CE18A /* Build configuration list for PBXAggregateTarget "PersonaInquirySDK" */;
-			buildPhases = (
-				07849B0AB6C8F1DD1CE1A8C922E6AB11 /* [CP] Copy XCFrameworks */,
-			);
-			dependencies = (
-			);
-			name = PersonaInquirySDK;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		4F756E2ABC3510ACF4F0DD0A8C496BE0 /* Pods-PersonaSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 138F9549E9539D9EF789E8ED5BFE0DFC /* Pods-PersonaSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C05E5D1284039EFA41445FE3E31AAE6C /* Pods-PersonaSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D5348B252F9BFFFC8280642BEB298B /* Pods-PersonaSample-dummy.m */; };
-		E3D999BBC4A6524D437E65AA670B8AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		8C16A3409C1162AF3985DF7D683DAA0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		99212BF703F80A3A2DB7FBF68717369E /* Pods-PersonaSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DB19B419577133665B1931225A5863 /* Pods-PersonaSample-dummy.m */; };
+		D91E5D93A2004358FE0412CE821C6D21 /* Pods-PersonaSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F738DC41EF8542B8E45B359FA0779DC2 /* Pods-PersonaSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		37621B333B6880A17B3301F9176B3A8A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F64506DE722836AE15E4CF7F2FAAD31C;
-			remoteInfo = PersonaInquirySDK;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		138F9549E9539D9EF789E8ED5BFE0DFC /* Pods-PersonaSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PersonaSample-umbrella.h"; sourceTree = "<group>"; };
-		25D5348B252F9BFFFC8280642BEB298B /* Pods-PersonaSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PersonaSample-dummy.m"; sourceTree = "<group>"; };
-		2AA36CA3275D4D69FEB8FA7FD5F6BF25 /* Pods-PersonaSample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersonaSample-Info.plist"; sourceTree = "<group>"; };
-		4275D3E8F5DDE77183CD0CAB4700B6B6 /* Pods-PersonaSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PersonaSample.modulemap"; sourceTree = "<group>"; };
-		55F5D0DC3F13D0F6FA7F5C7477D26B87 /* PersonaInquirySDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PersonaInquirySDK.debug.xcconfig; sourceTree = "<group>"; };
+		180B5D458657AECF80BC098F252A8E2D /* Pods-PersonaSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PersonaSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		63BEC6807717A3366633967B969583DA /* Pods-PersonaSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersonaSample-acknowledgements.plist"; sourceTree = "<group>"; };
+		6522ED83328BF50B3B1DA9837B67FCB0 /* Pods-PersonaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PersonaSample.debug.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		78EA1FEF9ED9700CFC9DE0D0505D1C84 /* Pods-PersonaSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersonaSample-acknowledgements.plist"; sourceTree = "<group>"; };
-		8AACFC7BDA1204CB588CE4FB043B7DE3 /* Pods-PersonaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PersonaSample.release.xcconfig"; sourceTree = "<group>"; };
+		78AFC5797A1E6A4E9C1ADEEA6F8B053E /* Pods-PersonaSample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PersonaSample-Info.plist"; sourceTree = "<group>"; };
 		9D591E672FE346200C6E9C43AECD5251 /* Pods_PersonaSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PersonaSample.framework; path = "Pods-PersonaSample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DECEF5CBF1CC376AEA594FA1A188BE9 /* Pods-PersonaSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PersonaSample-frameworks.sh"; sourceTree = "<group>"; };
-		9FDF8B75C5CFE141D7F85030CF860935 /* PersonaInquirySDK-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PersonaInquirySDK-xcframeworks.sh"; sourceTree = "<group>"; };
-		C3DCE4E9813F303976467B5B62EF1C19 /* PersonaInquirySDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PersonaInquirySDK.release.xcconfig; sourceTree = "<group>"; };
-		CC2CD56127563305D18C203FBDD4CD70 /* Persona.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = Persona.xcframework; sourceTree = "<group>"; };
-		EA81411A88E705159A4CE82D4A9FF364 /* Pods-PersonaSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PersonaSample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA0E9BEEDE02969E96BF25905A196D91 /* Pods-PersonaSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PersonaSample.debug.xcconfig"; sourceTree = "<group>"; };
+		C58235752815C60781E1AB0F8D0F5E28 /* Pods-PersonaSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PersonaSample.release.xcconfig"; sourceTree = "<group>"; };
+		E4DB19B419577133665B1931225A5863 /* Pods-PersonaSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PersonaSample-dummy.m"; sourceTree = "<group>"; };
+		F03F7A609EF10C69DBCD4C2A7DD13F45 /* Pods-PersonaSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PersonaSample.modulemap"; sourceTree = "<group>"; };
+		F738DC41EF8542B8E45B359FA0779DC2 /* Pods-PersonaSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PersonaSample-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		34BFE2FA52E76A9C4EA04C9F49DE1130 /* Frameworks */ = {
+		2AB8105788E9F38472E75C9902095D9D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3D999BBC4A6524D437E65AA670B8AB7 /* Foundation.framework in Frameworks */,
+				8C16A3409C1162AF3985DF7D683DAA0C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		297ACA140D96610E4F3DCA19FC50FBD4 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				FDB141D53B79284F1C4FF45FA38D9658 /* Pods-PersonaSample */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		3588B18E243039251429FE5DE4D64917 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A9EBE0F58E3E8A4E3A8A2C7AF721ABF1 /* PersonaInquirySDK */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3F48D48C0AB780083A0584718EF608EE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9FDF8B75C5CFE141D7F85030CF860935 /* PersonaInquirySDK-xcframeworks.sh */,
-				55F5D0DC3F13D0F6FA7F5C7477D26B87 /* PersonaInquirySDK.debug.xcconfig */,
-				C3DCE4E9813F303976467B5B62EF1C19 /* PersonaInquirySDK.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PersonaInquirySDK";
-			sourceTree = "<group>";
-		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,22 +54,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		977B3B683771B5C4C648793EA181C212 /* Frameworks */ = {
+		7DF6B4625662F53D51293700473ECE9B /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CC2CD56127563305D18C203FBDD4CD70 /* Persona.xcframework */,
+				8BCDC8D2552E2C500957414F3F16A0B7 /* Pods-PersonaSample */,
 			);
-			name = Frameworks;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A9EBE0F58E3E8A4E3A8A2C7AF721ABF1 /* PersonaInquirySDK */ = {
+		8BCDC8D2552E2C500957414F3F16A0B7 /* Pods-PersonaSample */ = {
 			isa = PBXGroup;
 			children = (
-				977B3B683771B5C4C648793EA181C212 /* Frameworks */,
-				3F48D48C0AB780083A0584718EF608EE /* Support Files */,
+				F03F7A609EF10C69DBCD4C2A7DD13F45 /* Pods-PersonaSample.modulemap */,
+				180B5D458657AECF80BC098F252A8E2D /* Pods-PersonaSample-acknowledgements.markdown */,
+				63BEC6807717A3366633967B969583DA /* Pods-PersonaSample-acknowledgements.plist */,
+				E4DB19B419577133665B1931225A5863 /* Pods-PersonaSample-dummy.m */,
+				78AFC5797A1E6A4E9C1ADEEA6F8B053E /* Pods-PersonaSample-Info.plist */,
+				F738DC41EF8542B8E45B359FA0779DC2 /* Pods-PersonaSample-umbrella.h */,
+				6522ED83328BF50B3B1DA9837B67FCB0 /* Pods-PersonaSample.debug.xcconfig */,
+				C58235752815C60781E1AB0F8D0F5E28 /* Pods-PersonaSample.release.xcconfig */,
 			);
-			name = PersonaInquirySDK;
-			path = PersonaInquirySDK;
+			name = "Pods-PersonaSample";
+			path = "Target Support Files/Pods-PersonaSample";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -132,9 +83,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				3588B18E243039251429FE5DE4D64917 /* Pods */,
 				6626B3CBA567902AC3739FDD9073D9FF /* Products */,
-				297ACA140D96610E4F3DCA19FC50FBD4 /* Targets Support Files */,
+				7DF6B4625662F53D51293700473ECE9B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,31 +96,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDB141D53B79284F1C4FF45FA38D9658 /* Pods-PersonaSample */ = {
-			isa = PBXGroup;
-			children = (
-				4275D3E8F5DDE77183CD0CAB4700B6B6 /* Pods-PersonaSample.modulemap */,
-				EA81411A88E705159A4CE82D4A9FF364 /* Pods-PersonaSample-acknowledgements.markdown */,
-				78EA1FEF9ED9700CFC9DE0D0505D1C84 /* Pods-PersonaSample-acknowledgements.plist */,
-				25D5348B252F9BFFFC8280642BEB298B /* Pods-PersonaSample-dummy.m */,
-				9DECEF5CBF1CC376AEA594FA1A188BE9 /* Pods-PersonaSample-frameworks.sh */,
-				2AA36CA3275D4D69FEB8FA7FD5F6BF25 /* Pods-PersonaSample-Info.plist */,
-				138F9549E9539D9EF789E8ED5BFE0DFC /* Pods-PersonaSample-umbrella.h */,
-				FA0E9BEEDE02969E96BF25905A196D91 /* Pods-PersonaSample.debug.xcconfig */,
-				8AACFC7BDA1204CB588CE4FB043B7DE3 /* Pods-PersonaSample.release.xcconfig */,
-			);
-			name = "Pods-PersonaSample";
-			path = "Target Support Files/Pods-PersonaSample";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D3920BFE582DEACBD06EDD7E98C427DE /* Headers */ = {
+		7CFB3A14270245EB3AF8354D596920B6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F756E2ABC3510ACF4F0DD0A8C496BE0 /* Pods-PersonaSample-umbrella.h in Headers */,
+				D91E5D93A2004358FE0412CE821C6D21 /* Pods-PersonaSample-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,17 +112,16 @@
 /* Begin PBXNativeTarget section */
 		5100A8BA0C743FB9B46EFA5CAEE754B9 /* Pods-PersonaSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1AF8E61C107B49474F5FFBCC2AB9782B /* Build configuration list for PBXNativeTarget "Pods-PersonaSample" */;
+			buildConfigurationList = B17649EA6E8C5AD6C98617B59980A9E2 /* Build configuration list for PBXNativeTarget "Pods-PersonaSample" */;
 			buildPhases = (
-				D3920BFE582DEACBD06EDD7E98C427DE /* Headers */,
-				C8452C09D021A8EF7DEC4589150CD6DF /* Sources */,
-				34BFE2FA52E76A9C4EA04C9F49DE1130 /* Frameworks */,
-				511590258E195B3C7F0118E14A8C60AD /* Resources */,
+				7CFB3A14270245EB3AF8354D596920B6 /* Headers */,
+				742C980F5409B3E058E274228A990F8E /* Sources */,
+				2AB8105788E9F38472E75C9902095D9D /* Frameworks */,
+				05349A3267C5138ADE26171A6FC149B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E8C950E826F6F6B328AF5B11147D5D75 /* PBXTargetDependency */,
 			);
 			name = "Pods-PersonaSample";
 			productName = "Pods-PersonaSample";
@@ -218,14 +150,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F64506DE722836AE15E4CF7F2FAAD31C /* PersonaInquirySDK */,
 				5100A8BA0C743FB9B46EFA5CAEE754B9 /* Pods-PersonaSample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		511590258E195B3C7F0118E14A8C60AD /* Resources */ = {
+		05349A3267C5138ADE26171A6FC149B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,50 +165,21 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		07849B0AB6C8F1DD1CE1A8C922E6AB11 /* [CP] Copy XCFrameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/PersonaInquirySDK/PersonaInquirySDK-xcframeworks-input-files.xcfilelist",
-			);
-			name = "[CP] Copy XCFrameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/PersonaInquirySDK/PersonaInquirySDK-xcframeworks-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/PersonaInquirySDK/PersonaInquirySDK-xcframeworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		C8452C09D021A8EF7DEC4589150CD6DF /* Sources */ = {
+		742C980F5409B3E058E274228A990F8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C05E5D1284039EFA41445FE3E31AAE6C /* Pods-PersonaSample-dummy.m in Sources */,
+				99212BF703F80A3A2DB7FBF68717369E /* Pods-PersonaSample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E8C950E826F6F6B328AF5B11147D5D75 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PersonaInquirySDK;
-			target = F64506DE722836AE15E4CF7F2FAAD31C /* PersonaInquirySDK */;
-			targetProxy = 37621B333B6880A17B3301F9176B3A8A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		528E6CBBD1925D87451CF67356FF9F5F /* Release */ = {
+		5AAA75FA91F1E9F94275DD3E505A639F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AACFC7BDA1204CB588CE4FB043B7DE3 /* Pods-PersonaSample.release.xcconfig */;
+			baseConfigurationReference = C58235752815C60781E1AB0F8D0F5E28 /* Pods-PersonaSample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -313,26 +215,9 @@
 			};
 			name = Release;
 		};
-		5BCEEECFD15D05D6F552DDB396EAEBB5 /* Debug */ = {
+		9C00A94C7BA896E421DE3D388A94B44E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55F5D0DC3F13D0F6FA7F5C7477D26B87 /* PersonaInquirySDK.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6CE7A6F199A4DFCBF4F7009A918DD676 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA0E9BEEDE02969E96BF25905A196D91 /* Pods-PersonaSample.debug.xcconfig */;
+			baseConfigurationReference = 6522ED83328BF50B3B1DA9837B67FCB0 /* Pods-PersonaSample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -433,24 +318,6 @@
 			};
 			name = Debug;
 		};
-		BF53334EA42F5B86259C6A6E3D31DB56 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3DCE4E9813F303976467B5B62EF1C19 /* PersonaInquirySDK.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		C605C363CC9F26F9FF97DBB1D5C6E25C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -516,15 +383,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1AF8E61C107B49474F5FFBCC2AB9782B /* Build configuration list for PBXNativeTarget "Pods-PersonaSample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6CE7A6F199A4DFCBF4F7009A918DD676 /* Debug */,
-				528E6CBBD1925D87451CF67356FF9F5F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -534,11 +392,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF61A56058930BB7B4AACE673F8CE18A /* Build configuration list for PBXAggregateTarget "PersonaInquirySDK" */ = {
+		B17649EA6E8C5AD6C98617B59980A9E2 /* Build configuration list for PBXNativeTarget "Pods-PersonaSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BCEEECFD15D05D6F552DDB396EAEBB5 /* Debug */,
-				BF53334EA42F5B86259C6A6E3D31DB56 /* Release */,
+				9C00A94C7BA896E421DE3D388A94B44E /* Debug */,
+				5AAA75FA91F1E9F94275DD3E505A639F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
