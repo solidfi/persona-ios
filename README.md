@@ -1,13 +1,17 @@
 # persona-ios
 Persona Sample for iOS
 
-Overview :
-- Persona provides a powerful, secure platform to help organizations collect, verify, store, and analyze the identity of any individual.
+## Table of contents
+- [Overview](#overview)
+- [Getting started](#getting-started)
+- [Tooling](#tooling)
+- [API Reference](#api-reference)
 
-Requirements :
-- iOS 13 and above
-- Xcode 12 and above
 
+## Overview
+Persona provides a powerful, secure platform to help organizations collect, verify, store, and analyze the identity of any individual.
+
+## Getting started
 Configure Persona Sample :
 - Clone respository
 ```groovy
@@ -15,26 +19,20 @@ git clone git@github.com:solidfi/persona-ios.git
 OR
 git clone https://github.com/solidfi/persona-ios.git
 ```
-- Install CocoaPods
+- Open project and run in Simulator
 ```groovy
-1. Install CocoaPods at https://cocoapods.org/
-2. In the `PersonaSample/` directory run `pod install`
-```
-- Open workspace and run in Simulator
-```groovy
-1. Launch `Xcode` and open the workspace `PersonaSample/PersonaSample.xcworkspace`
+1. Launch `Xcode` and open the project `PersonaSample/PersonaSample.xcodeproj`
 2. Run in Simulator
 ```
-Locate your Template ID (other than from API):
-- Sign up for a free Persona account which comes with Sandbox access
-- Login to the Persona Dashboard and go to the Development section.
-- Select the Template you want to use from the drop-down and copy the Template ID for later.
+In order to start building and running the Persona sample, you'll need 'enquiry-url' to open in Webview.
 
-Required fields:
-- Template ID : which you will get from Persona dashboard OR your server 
-- Person ID : which you will get from your server 
-- Inquiry ID : which you will get on Persona Inquiry create success
+In a real-life integration, the 'enquiry-url' would have to be requested from idv-submit api.
 
-Reference links :
-- Persona Integration : https://docs.withpersona.com/docs/ios-inquiry-sdk-integration-guide
+## Tooling
+- iOS 13.0 +
+- Xcode 11 +
+- Swift 5.0 +
+
+## API Reference
+- Persona Hosted Flow Integration : https://docs.withpersona.com/docs/quickstart-hosted-flow
 - Solid API Integration : https://documenter.getpostman.com/view/13543869/TWDfEDwX#ce8c0e57-0dcf-45ea-87d8-6f03a302e027
