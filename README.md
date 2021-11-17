@@ -27,9 +27,9 @@ git clone https://github.com/solidfi/persona-ios.git
 ```
 
 ## Parameters
-In order to start building and running the Persona sample, you'll need _'enquiry-url'_ to open in Webview.
+In order to start building and running the Persona sample, you'll need _**'enquiry-url'**_ to open in Webview.
 
-In a real-life integration, the _'enquiry-url'_ would have to be requested from idv-submit api.
+In a real-life integration, the _**'enquiry-url'**_ would have to be requested from idv-submit api.
 
 ## Tooling
 - iOS 13.0 +
