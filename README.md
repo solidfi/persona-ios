@@ -4,6 +4,7 @@ Persona Sample for iOS
 ## Table of contents
 - [Overview](#overview)
 - [Getting started](#getting-started)
+- [Parameters](#parameters)
 - [Tooling](#tooling)
 - [API Reference](#api-reference)
 
@@ -24,9 +25,11 @@ git clone https://github.com/solidfi/persona-ios.git
 1. Launch `Xcode` and open the project `PersonaSample/PersonaSample.xcodeproj`
 2. Run in Simulator
 ```
-In order to start building and running the Persona sample, you'll need 'enquiry-url' to open in Webview.
 
-In a real-life integration, the 'enquiry-url' would have to be requested from idv-submit api.
+## Parameters
+In order to start building and running the Persona sample, you'll need _'enquiry-url'_ to open in Webview.
+
+In a real-life integration, the _'enquiry-url'_ would have to be requested from idv-submit api.
 
 ## Tooling
 - iOS 13.0 +
