@@ -29,11 +29,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func startPersonaVerification(_ sender: Any) {
+        /* NOTE:-
+         IN PRODUCTION APP, NEED TO CALL SOLID API TO GET ENQUIRY URL FROM `/person/(personId)/idv` API
+         - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
+        */
+        
         self.lblLogs.isHidden = true
         self.lblLogs.text = ""
         
         if let strEnquiryURL = txtEnquiryURL.text?.trimmingCharacters(in: CharacterSet.whitespaces), !strEnquiryURL.isEmpty, isValidUrl(urlString: strEnquiryURL) {
-            //PASS ENTERED HOSTED URL TO LOAD WEBVIEW...
+            //PASS ENTERED HOSTED URL (OR RECEIVED FROM API) TO LOAD WEBVIEW...
             self.loadWebview(forHostedUrl: strEnquiryURL)
         } else {
             let alert = UIAlertController(title: "Enter valid Enquiry URL", message: "", preferredStyle: .alert)
@@ -134,6 +139,14 @@ extension ViewController: WKNavigationDelegate {
             return
         }
         
+        // At this point we're done, so we don't need to load the URL.
+        // verification is success..
+        decisionHandler(.cancel)
+        
+        /* NOTE:-
+         THIS IS JUST FOR LOGS DISPLAY.
+         IN PRODUCTION APP, DIRECTLY SUBMIT KYC ON IDENTITY COMPLETION
+         */
         let responseUrl = URL(string: redirectUri)!
         var responseDict = [String:String]()
         let components = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)!
@@ -143,19 +156,14 @@ extension ViewController: WKNavigationDelegate {
             }
         }
         
-        // At this point we're done, so we don't need to load the URL.
-        // verification is success..
-        decisionHandler(.cancel)
-
-        
         self.txtEnquiryURL.text = ""
         self.personaWebView.removeFromSuperview()
         
         self.lblLogs.isHidden = false
-        self.lblLogs.text = "Identity success.....\n\(responseDict)"
+        self.lblLogs.text = "Identity success.....\n\n\(responseDict)"
 
         
-        /* ON API CALL SUCCESS, MAKE API CALL TO SUBMIT KYC'
+        /* ON PERSONA IDENTITY SUCCESS, MAKE API CALL TO SUBMIT KYC'
          - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
          */
         self.callAPIToSubmitKYC()

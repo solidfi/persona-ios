@@ -37,7 +37,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsO-no-b84">
-                                <rect key="frame" x="60" y="238.5" width="294" height="50"/>
+                                <rect key="frame" x="60" y="180.5" width="294" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ouM-sy-yTF"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YM-2f-sbf">
-                                <rect key="frame" x="25" y="308.5" width="364" height="15.5"/>
+                                <rect key="frame" x="25" y="250.5" width="364" height="15.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="13"/>
                                 <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZsO-no-b84" secondAttribute="trailing" constant="60" id="cWw-of-C5s"/>
                             <constraint firstItem="9YM-2f-sbf" firstAttribute="top" secondItem="ZsO-no-b84" secondAttribute="bottom" constant="20" id="gSp-MN-O8L"/>
                             <constraint firstItem="rBi-dx-Rn7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="gU5-4E-ple"/>
-                            <constraint firstItem="ZsO-no-b84" firstAttribute="top" secondItem="Szg-8w-pbS" secondAttribute="bottom" constant="108" id="rBy-qp-SIK"/>
+                            <constraint firstItem="ZsO-no-b84" firstAttribute="top" secondItem="Szg-8w-pbS" secondAttribute="bottom" constant="50" id="rBy-qp-SIK"/>
                             <constraint firstItem="Szg-8w-pbS" firstAttribute="top" secondItem="rBi-dx-Rn7" secondAttribute="bottom" constant="7" id="rMZ-9z-mcE"/>
                             <constraint firstItem="rBi-dx-Rn7" firstAttribute="leading" secondItem="Szg-8w-pbS" secondAttribute="leading" id="tQo-E3-Rco"/>
                             <constraint firstItem="9YM-2f-sbf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="v04-gs-EZO"/>
