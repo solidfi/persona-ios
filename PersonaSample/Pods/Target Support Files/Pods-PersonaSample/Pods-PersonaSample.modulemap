@@ -1,6 +1,0 @@
-framework module Pods_PersonaSample {
-  umbrella header "Pods-PersonaSample-umbrella.h"
-
-  export *
-  module * { export * }
-}

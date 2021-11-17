@@ -10,47 +10,33 @@ import WebKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var lblPersonIDTitle: UILabel!
-    @IBOutlet weak var txtPersonID: UITextField!
-        
-    @IBOutlet weak var lblEnviormentTitle: UILabel!
-    @IBOutlet weak var txtEnvironment: UITextField!
+    @IBOutlet weak var lblEnquiryURLTitle: UILabel!
+    @IBOutlet weak var txtEnquiryURL: UITextField!
     
     @IBOutlet weak var lblLogs: UILabel!
 
-    let pickerView = UIPickerView()
-    var strSelectedEnvironment: String? = ""
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var personaWebView: WKWebView!
     let personaCallback = "https://personacallback"
     
-    public let environmnts: [String] = ["SANDBOX", "PRODUCTION"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        txtPersonID.delegate = self
-        
+        txtEnquiryURL.delegate = self
         lblLogs.isHidden = true
-        
-        setPicker()
     }
     
     @IBAction func startPersonaVerification(_ sender: Any) {
-        /*
-        - Enter "person_id" with one that you recieve from server
-        - Select 'sandbox' OR 'production'
-        */
+        self.lblLogs.isHidden = true
+        self.lblLogs.text = ""
         
-        if let strPersonID = txtPersonID.text?.trimmingCharacters(in: CharacterSet.whitespaces), !strPersonID.isEmpty,
-           let strEnvironment = txtEnvironment.text, !strEnvironment.isEmpty {
-            /* MAKE API CALL TO GET hostedURL FROM YOUR SERVER
-             - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#b53a7e6a-a1b0-4510-89e5-c69704d3a7f9
-             */
-            callAPIToGetHostedURL(strPersonID: strPersonID, strEnvironment: strEnvironment)
+        if let strEnquiryURL = txtEnquiryURL.text?.trimmingCharacters(in: CharacterSet.whitespaces), !strEnquiryURL.isEmpty, isValidUrl(urlString: strEnquiryURL) {
+            //PASS ENTERED HOSTED URL TO LOAD WEBVIEW...
+            self.loadWebview(forHostedUrl: strEnquiryURL)
         } else {
-            let alert = UIAlertController(title: "Enter valid data", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Enter valid Enquiry URL", message: "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -59,6 +45,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    func activityIndicatorBegin() {
+        activityIndicatorEnd()
+        
+        let currentWindow: UIWindow? = UIApplication.shared.windows.filter({$0.isKeyWindow}).first // UIApplication.shared.keyWindow
+       
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        activityIndicator.center = currentWindow!.center
+        activityIndicator.hidesWhenStopped = true
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .large
+        } else {
+            // Fallback on earlier versions
+            activityIndicator.style = .whiteLarge
+        }
+
+        currentWindow?.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    func activityIndicatorEnd() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func isValidUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
     }
 }
 
@@ -85,19 +103,25 @@ extension ViewController {
                 personaWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         }
+        
+        self.activityIndicatorBegin()
 
         let redirectURI = "&redirect-uri=\(personaCallback)"
         let strUrl  = forHostedUrl + redirectURI
         let hostedURL = URL(string: strUrl)
         let request = URLRequest(url: hostedURL!)
         personaWebView.load(request)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.activityIndicatorEnd()
+        }
    }
 }
 
 extension ViewController: WKNavigationDelegate {
-    
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        debugPrint("hellosign webview error : \(error)")
+        self.activityIndicatorEnd()
+        debugPrint("webview error : \(error)")
     }
     
     /// Handle navigation actions from the web view.
@@ -109,15 +133,27 @@ extension ViewController: WKNavigationDelegate {
             decisionHandler(.allow)
             return
         }
-
+        
+        let responseUrl = URL(string: redirectUri)!
+        var responseDict = [String:String]()
+        let components = URLComponents(url: responseUrl, resolvingAgainstBaseURL: false)!
+        if let queryItems = components.queryItems {
+            for item in queryItems {
+                responseDict[item.name] = item.value!
+            }
+        }
+        
         // At this point we're done, so we don't need to load the URL.
         // verification is success..
         decisionHandler(.cancel)
+
+        
+        self.txtEnquiryURL.text = ""
+        self.personaWebView.removeFromSuperview()
         
         self.lblLogs.isHidden = false
-        self.lblLogs.text = "Identity success....."
+        self.lblLogs.text = "Identity success.....\n\(responseDict)"
 
-        //self.lblLogs.text = "Identity success.....\nInquiryID: \("inquiryID") \n\n Attributes: \(attributes)\n\nRelationships: \(relationships)"
         
         /* ON API CALL SUCCESS, MAKE API CALL TO SUBMIT KYC'
          - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
@@ -126,60 +162,8 @@ extension ViewController: WKNavigationDelegate {
     }
 }
 
-// MARK: - Picker Delegates
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func setPicker() {
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        
-        let toolbar = UIToolbar()
-        
-        toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
-        //doneButton.tintColor = .primaryColor
-
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
-        //cancelButton.tintColor = .primaryColor
-
-        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-
-        self.txtEnvironment?.inputAccessoryView = toolbar
-        self.txtEnvironment?.inputView = pickerView
-    }
-
-    @objc func donePicker() {
-        let pDleage = pickerView.delegate
-        let str = pDleage?.pickerView?(self.pickerView, titleForRow: self.pickerView.selectedRow(inComponent: 0), forComponent: 0)
-        self.txtEnvironment!.text = str
-        self.view.endEditing(true)
-    }
-
-    @objc func cancelDatePicker() {
-        self.view.endEditing(true)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return environmnts.count
-    }
-
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return environmnts[row]
-    }
-}
-
 // MARK: - API calls
 extension ViewController {
-    func callAPIToGetHostedURL(strPersonID: String, strEnvironment: String) {
-        //ON SUCCESS..HOSTED URL WILL BE RECIVED..
-        //PASS RECEIVED HOSTED URL TO LOAD WEBVIEW...
-        self.loadWebview(forHostedUrl: "")
-    }
-
     func callAPIToSubmitKYC() {
     }
 }
