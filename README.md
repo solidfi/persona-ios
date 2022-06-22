@@ -37,9 +37,4 @@ In a real-life integration, the _**'enquiry-url'**_ would have to be requested f
 
 ## API Reference
 - Persona Hosted Flow Integration : https://docs.withpersona.com/docs/quickstart-hosted-flow
-- Solid API Integration : https://documenter.getpostman.com/view/13543869/TWDfEDwX#ce8c0e57-0dcf-45ea-87d8-6f03a302e027
-
-
-
-
-
+- Solid API Integration : https://www.solidfi.com/docs/introduction
