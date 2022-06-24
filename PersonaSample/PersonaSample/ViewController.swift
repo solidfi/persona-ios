@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func startPersonaVerification(_ sender: Any) {
         /* NOTE:-
          IN PRODUCTION APP, NEED TO CALL SOLID API TO GET ENQUIRY URL FROM `/person/(personId)/idv` API
-         - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
+         - API Link :  https://www.solidfi.com/docs/introduction
         */
         
         self.lblLogs.isHidden = true
@@ -104,15 +104,15 @@ extension ViewController {
             NSLayoutConstraint.activate([
                 personaWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 personaWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                personaWebView.topAnchor.constraint(equalTo: view.topAnchor),
-                personaWebView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                personaWebView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                personaWebView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
         
         self.activityIndicatorBegin()
 
         let redirectURI = "&redirect-uri=\(personaCallback)"
-        let strUrl  = forHostedUrl + redirectURI
+        let strUrl  = forHostedUrl + redirectURI + "&is-webview=true"
         let hostedURL = URL(string: strUrl)
         let request = URLRequest(url: hostedURL!)
         personaWebView.load(request)
@@ -145,7 +145,7 @@ extension ViewController: WKNavigationDelegate {
         
         /* NOTE:-
          THIS IS JUST FOR LOGS DISPLAY.
-         IN PRODUCTION APP, DIRECTLY SUBMIT KYC ON IDENTITY COMPLETION
+         IN PRODUCTION APP, HANDLE SUCCESS FLOW ON IDENTITY COMPLETION
          */
         let responseUrl = URL(string: redirectUri)!
         var responseDict = [String:String]()
@@ -161,18 +161,5 @@ extension ViewController: WKNavigationDelegate {
         
         self.lblLogs.isHidden = false
         self.lblLogs.text = "Identity success.....\n\n\(responseDict)"
-
-        
-        /* ON PERSONA IDENTITY SUCCESS, MAKE API CALL TO SUBMIT KYC'
-         - API Link : https://documenter.getpostman.com/view/13543869/TWDfEDwX#d9e1ff39-729e-4f3a-beb0-78cd48710087
-         */
-        self.callAPIToSubmitKYC()
     }
 }
-
-// MARK: - API calls
-extension ViewController {
-    func callAPIToSubmitKYC() {
-    }
-}
-
